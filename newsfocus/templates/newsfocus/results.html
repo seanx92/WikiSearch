@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load tag_library %}
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>1 Col Portfolio - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'css/agency.css' %}" rel="stylesheet">
+    <link href="{% static 'css/daterangepicker.css' %}" rel="stylesheet">
+
+    <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        body {
+            padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+        }
+
+        footer {
+            margin: 50px 0;
+        }
+        #bg {
+          position: fixed;
+          top: 0;
+          left: 0;
+
+          /* Preserve aspet ratio */
+          min-width: 100%;
+          min-height: 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <img src="/static/img/bg.jpg" id="bg" alt="">
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" style='color: #fed136;font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;' href="/">Wiki Articles Search Engine</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <form class="navbar-form navbar-left search-form" name="search" id="searchForm">
+                    <input name="search" type="text" id="ordinary-key-words" class="form-control" placeholder="Key Words" style="width:40em">
+                    <button type="submit" form="searchForm" class="btn btn-primary" id="ordinary-search">Search</button>
+                </form>
+<!--                 <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#" data-toggle="collapse" data-target="#advancedSearch" style='font-family:"Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;'>Advanced Search</a>
+                    </li>
+                </ul> -->
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- <div class="container collapse" id="advancedSearch" style="background-color:#FFFFFF;opacity: 0.9">
+        <form class="search-form" id="adSearchForm" >
+          <div class="form-group text-left" style="margin-left:12px;margin-top:10px">
+            <label for="filter" style="color:#000000;font-size:12pt">Category</label>
+            <div>
+                <label for="art" class="btn btn-success" style='font-family:"Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif'>Art <input type="checkbox" id="art" class="badgebox"><span class="badge">&check;</span></label>
+                <label for="business" class="btn btn-warning" style='font-family:"Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif'>Business <input type="checkbox" id="business" class="badgebox"><span class="badge">&check;</span></label>
+                <label for="food" class="btn btn-info" style='font-family:"Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif'>Food <input type="checkbox" id="food" class="badgebox"><span class="badge">&check;</span></label>
+                <label for="health" class="btn btn-success" style='font-family:"Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif'>Health <input type="checkbox" id="health" class="badgebox"><span class="badge">&check;</span></label>
+                <label for="science" class="btn btn-warning" style='font-family:"Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif'>Science <input type="checkbox" id="science" class="badgebox"><span class="badge">&check;</span></label>
+                <label for="travel" class="btn btn-danger" style='font-family:"Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif'>Travel <input type="checkbox" id="travel" class="badgebox"><span class="badge">&check;</span></label>
+                <label for="sports" class="btn btn-info" style='font-family:"Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif'>Sports <input type="checkbox" id="sports" class="badgebox"><span class="badge">&check;</span></label>
+                <label for="world" class="btn btn-success" style='font-family:"Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif'>World <input type="checkbox" id="world" class="badgebox"><span class="badge">&check;</span></label>
+            </div>
+          </div>
+          <div class="form-group text-left" style="margin-left:12px">
+              <label for="contain" style="color:#000000;font-size:12pt">Date Range</label><br>
+              <input id="date-range" type="text" style="color:#000000" name="daterange" value="01/01/2010 - 05/10/2016" />
+          </div>
+          <div class="form-group text-left" style="margin-left:12px">
+            <label for="contain" style="color:#000000;font-size:12pt">Key Words</label>
+            <input id="advanced-key-words" class="form-control" type="text" style="width: 50em"/>
+          </div>
+          <div class="form-group text-left" style="margin-left:12px">
+              <button id="advanced-search" type="submit" class="btn btn-danger" style='font-family:"Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif'>Advanced Search</button>
+          </div>
+        </form>
+    </div> -->
+
+    <!-- Page Content -->
+    <div class="container" style="background-color:#FFFFFF;opacity: 0.9">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Your Results                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+        <div id="results">
+        </div>
+
+        <!-- Pagination -->
+        <div class="row text-center">
+            <div class="col-lg-12">
+                <ul class="pagination">
+                    <li>
+                        <a id="previouspage">&laquo;</a>
+                    </li>
+                    <li>
+                        <a id="nextpage">&raquo;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; GoldenBear 2016</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- text field -->
+	<div id="text-field">
+	</div>
+    <!-- /text field -->
+
+    <!-- jQuery -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="{% static 'js/classie.js' %}"></script>
+    <script src="{% static 'js/cbpAnimatedHeader.js' %}"></script>
+
+    <!-- Form JavaScript -->
+    <script src="{% static 'js/jqBootstrapValidation.js' %}"></script>
+    <script src="{% static 'js/validation.js' %}"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{% static 'js/agency.js' %}"></script>
+    <script src="{% static 'js/moment.min.js' %}"></script>
+    <script src="{% static 'js/daterangepicker.js' %}"></script>
+
+	<script src="{% static 'js/ajax_search.js' %}"></script>
+
+    <script type="text/javascript">
+        if ( $("#results").html().trim().length === 0 ) {
+            $.ajax({
+                type: "POST",
+                url: "/ordinary_search/",
+                data: {
+                    csrfmiddlewaretoken: '{{csrf_token}}',
+                    'keywords': "{{results}}",
+                },
+                success: success_action
+            });
+        }
+    </script>
+
+</body>
+
+</html>
